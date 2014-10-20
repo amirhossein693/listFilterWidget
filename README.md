@@ -1,4 +1,4 @@
-listWidget
-==========
+listFilterWidget
+================
 
-jQuery list widget with filters
+jQuery list filter widget
