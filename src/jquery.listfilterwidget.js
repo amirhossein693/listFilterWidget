@@ -62,8 +62,8 @@
 				var filterStr = '';
 				if (filtersArr.length > 1) {
 					for (var i=0; i<filtersArr.length; i++) {
-						filterStr += '[data-filter~="' + filtersArr[i] + '"]+ ';
-						// filterStr += '[data-filter~="' + filtersArr[i] + '"], ';
+						// filterStr += '[data-filter~="' + filtersArr[i] + '"]+ ';
+						filterStr += '[data-filter~="' + filtersArr[i] + '"], ';
 					}
 					filterStr = filterStr.substring(0, filterStr.length - 2);
 				} else {
