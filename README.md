@@ -20,7 +20,7 @@ Your container should have a unique ID
 </div>
 ```
 
-### Hide Target Elements (CSS)
+#### Hide Target Elements (CSS)
 
 Before we start we must add to our project’s stylesheet to hide our target elements.
 
@@ -30,7 +30,7 @@ Before we start we must add to our project’s stylesheet to hide our target ele
 }
 ```
 
-### listFilterWidget it (JS)
+#### listFilterWidget it (JS)
 
 Firstly make sure the jQuery and listFilterWidget JavaScript files are loaded into your document before your project’s own JavaScript file.
 
