@@ -6,25 +6,26 @@
  * Github URL: https://github.com/amirhossein693/listFilterWidget
  */
 ;(function ($) {
-    'use strict';
-    $.fn.listFilterWidget = function( filters, options ) {
+	'use strict';
+	$.fn.listFilterWidget = function( filters, options ) {
 
-    	var self = this;
+		var self = this;
 
-    	// default settings
-        var settings = $.extend({
-            itemsClass		: '.items',
-            duration		: 100,
-            staggerStart	: 1,
-            staggerDuration	: 50
-        }, options);
+		// default settings
+		var settings = $.extend({
+			itemsClass		: '.items',
+			oparation		: 'AND',
+			duration		: 100,
+			staggerStart	: 1,
+			staggerDuration	: 50
+		}, options);
 
-        // private properties and methods
-        var ext = {
-            _itemsElem		: self.find(settings.itemsClass),
-            _itemsCount		: null,
-            _animation		: null,
-            _filters		: [],
+		// private properties and methods
+		var ext = {
+			_itemsElem		: self.find(settings.itemsClass),
+			_itemsCount		: null,
+			_animation		: null,
+			_filters		: [],
 			/*
 			 * @param {Array}
 			 * @returns {Array} Returns the new duplicate-value-free array.
@@ -62,20 +63,24 @@
 				var filterStr = '';
 				if (filtersArr.length > 1) {
 					for (var i=0; i<filtersArr.length; i++) {
-						// filterStr += '[data-filter~="' + filtersArr[i] + '"]+ ';
-						filterStr += '[data-filter~="' + filtersArr[i] + '"], ';
+						if (settings.oparation === 'AND') {
+							filterStr += '[data-filter~="' + filtersArr[i] + '"]';
+						} else if (settings.oparation === 'OR') {
+							filterStr += '[data-filter~="' + filtersArr[i] + '"], ';
+						}
 					}
-					filterStr = filterStr.substring(0, filterStr.length - 2);
+					// filterStr = filterStr.substring(0, filterStr.length - 2);
 				} else {
 					filterStr += '[data-filter~="' + filters + '"]';
 				}
+				console.log(filterStr);
 				return filterStr;
 			}
-        };
+		};
 
-        ext._itemsCount	= ext._itemsElem.length;
+		ext._itemsCount	= ext._itemsElem.length;
 
-        // initialize animation elements
+		// initialize animation elements
 		ext._animation =  ext._itemsElem.each(function(){
 			ext._filters = ext._filters.concat($(this).data('filter').split(' '));
 			if (!$(this).is(ext._dataFilters(filters))) {
@@ -91,8 +96,8 @@
 		ext._filters = ext._clean(ext._filters, '');
 
 		// start
-        return ext._animation;
+		return ext._animation;
 
-    };
+	};
 
 })(jQuery);
