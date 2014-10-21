@@ -69,7 +69,6 @@
 							filterStr += '[data-filter~="' + filtersArr[i] + '"], ';
 						}
 					}
-					// filterStr = filterStr.substring(0, filterStr.length - 2);
 				} else {
 					filterStr += '[data-filter~="' + filters + '"]';
 				}
