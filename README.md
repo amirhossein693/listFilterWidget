@@ -36,7 +36,7 @@ Firstly make sure the jQuery and listFilterWidget JavaScript files are loaded in
 
 ```
 <script src="jquery.min.js"></script>
-<script src="jquery.listfilterwidget.js"></script>
+<script src="jquery.listfilterwidget.min.js"></script>
 ```
 
 We’re ready to go!
